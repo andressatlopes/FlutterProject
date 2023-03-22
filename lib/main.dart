@@ -29,12 +29,12 @@ class _LoginDemoState extends State<LoginDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(247, 250, 185, 239),
+      backgroundColor: const Color.fromARGB(255, 252, 207, 244),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             const SizedBox(
-              height: 30,
+              height: 100,
             ),
             const Text(
               'LOGIN',
@@ -53,7 +53,7 @@ class _LoginDemoState extends State<LoginDemo> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 50,
             ),
             const Padding(
               //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
@@ -80,6 +80,25 @@ class _LoginDemoState extends State<LoginDemo> {
             const SizedBox(
               height: 10,
             ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   children: const [
+            //     // outro widget aqui, se houver
+            //     Expanded(
+            //       child: Align(
+            //         alignment: Alignment.centerLeft,
+            //         child: Text(
+            //           'Forgot Password?',
+            //           style: TextStyle(
+            //             color: Colors.black,
+            //             fontSize: 12,
+            //             fontWeight: FontWeight.bold,
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
             const Text(
               'Forgot Password?',
               style: TextStyle(
@@ -106,7 +125,7 @@ class _LoginDemoState extends State<LoginDemo> {
               child: const Text('Sign in'),
             ),
             const SizedBox(
-              height: 130,
+              height: 200,
             ),
             const Text(
               'Dont have an account yet? SIGN UP',

@@ -11,12 +11,15 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(247, 250, 185, 239),
+      backgroundColor: const Color.fromARGB(255, 252, 207, 244),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(
+            height: 100,
+          ),
           const Padding(
-            padding: EdgeInsets.only(left: 150, top: 45, bottom: 8),
+            padding: EdgeInsets.only(left: 120, top: 45, bottom: 8),
             child: Text(
               'MENU INICIAL',
               style: TextStyle(
@@ -27,14 +30,17 @@ class Menu extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 40,
+            height: 50,
           ),
           Expanded(
             child: ListView(
               children: [
                 ListTile(
-                  leading: CircleAvatar(
-                    child: Image.asset('images/simbolo.png'),
+                  leading: ClipOval(
+                    child: Image.asset(
+                      'images/simbolo.png',
+                      fit: BoxFit.fill,
+                    ),
                   ),
                   title: const Text(
                     'CANCÊR DE MAMA',
@@ -51,8 +57,8 @@ class Menu extends StatelessWidget {
                   height: 20,
                 ),
                 ListTile(
-                  leading: CircleAvatar(
-                    child: Image.asset('images/paciente.png'),
+                  leading: ClipOval(
+                    child: Image.asset('images/paciente.png', fit: BoxFit.fill),
                   ),
                   title: const Text(
                     'PACIENTE',
@@ -69,8 +75,8 @@ class Menu extends StatelessWidget {
                   height: 20,
                 ),
                 ListTile(
-                  leading: CircleAvatar(
-                    child: Image.asset('images/forum.png'),
+                  leading: ClipOval(
+                    child: Image.asset('images/forum.png', fit: BoxFit.fill),
                   ),
                   title: const Text(
                     'FÓRUM',
@@ -87,8 +93,8 @@ class Menu extends StatelessWidget {
                   height: 20,
                 ),
                 ListTile(
-                  leading: CircleAvatar(
-                    child: Image.asset('images/dicas.png'),
+                  leading: ClipOval(
+                    child: Image.asset('images/dicas.png', fit: BoxFit.fill),
                   ),
                   title: const Text(
                     'DICAS E DÚVIDAS',
