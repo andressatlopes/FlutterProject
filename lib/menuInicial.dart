@@ -33,8 +33,12 @@ class Menu extends StatelessWidget {
             child: ListView(
               children: [
                 ListTile(
-                  leading: ClipOval(
-                    child: Image.asset('images/simbolo.png', fit: BoxFit.fill,),
+                  leading: const CircleAvatar(
+                    backgroundImage: AssetImage('images/simbolo.png'),
+                    backgroundColor: Colors.transparent,
+                    radius: 20,
+                    foregroundColor: Colors.white,
+                    //backgroundBlendMode: BlendMode.darken,
                     
                   ),
                   title: const Text(
@@ -52,8 +56,11 @@ class Menu extends StatelessWidget {
                   height: 20,
                 ),
                 ListTile(
-                  leading: ClipOval(
-                    child: Image.asset('images/paciente.png',fit: BoxFit.fill),
+                  leading: const CircleAvatar(
+                    backgroundImage: AssetImage('images/paciente.png'),
+                    backgroundColor: Colors.transparent,
+                    radius: 20,
+                    foregroundColor: Colors.white,
                   ),
                   title: const Text(
                     'PACIENTE',
@@ -70,8 +77,11 @@ class Menu extends StatelessWidget {
                   height: 20,
                 ),
                 ListTile(
-                  leading: ClipOval(
-                    child: Image.asset('images/forum.png',fit: BoxFit.fill),
+                  leading: const CircleAvatar(
+                    backgroundImage: AssetImage('images/forum.png'),
+                    backgroundColor: Colors.transparent,
+                    radius: 20,
+                    foregroundColor: Colors.white,
                   ),
                   title: const Text(
                     'FÓRUM',
@@ -88,8 +98,11 @@ class Menu extends StatelessWidget {
                   height: 20,
                 ),
                 ListTile(
-                  leading: ClipOval(
-                    child: Image.asset('images/dicas.png', fit: BoxFit.fill),
+                  leading: const CircleAvatar(
+                    backgroundImage: AssetImage('images/dicas.png'),
+                    backgroundColor: Colors.transparent,
+                    radius: 20,
+                    foregroundColor: Colors.white,
                   ),
                   title: const Text(
                     'DICAS E DÚVIDAS',
