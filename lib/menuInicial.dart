@@ -33,8 +33,9 @@ class Menu extends StatelessWidget {
             child: ListView(
               children: [
                 ListTile(
-                  leading: CircleAvatar(
-                    child: Image.asset('images/simbolo.png'),
+                  leading: ClipOval(
+                    child: Image.asset('images/simbolo.png', fit: BoxFit.fill,),
+                    
                   ),
                   title: const Text(
                     'CANCÊR DE MAMA',
@@ -51,8 +52,8 @@ class Menu extends StatelessWidget {
                   height: 20,
                 ),
                 ListTile(
-                  leading: CircleAvatar(
-                    child: Image.asset('images/paciente.png'),
+                  leading: ClipOval(
+                    child: Image.asset('images/paciente.png',fit: BoxFit.fill),
                   ),
                   title: const Text(
                     'PACIENTE',
@@ -69,8 +70,8 @@ class Menu extends StatelessWidget {
                   height: 20,
                 ),
                 ListTile(
-                  leading: CircleAvatar(
-                    child: Image.asset('images/forum.png'),
+                  leading: ClipOval(
+                    child: Image.asset('images/forum.png',fit: BoxFit.fill),
                   ),
                   title: const Text(
                     'FÓRUM',
@@ -87,8 +88,8 @@ class Menu extends StatelessWidget {
                   height: 20,
                 ),
                 ListTile(
-                  leading: CircleAvatar(
-                    child: Image.asset('images/dicas.png'),
+                  leading: ClipOval(
+                    child: Image.asset('images/dicas.png', fit: BoxFit.fill),
                   ),
                   title: const Text(
                     'DICAS E DÚVIDAS',
