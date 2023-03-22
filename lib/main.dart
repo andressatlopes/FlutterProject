@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'menuInicial.dart';
 
 void main() {
   runApp(const MyApp());
@@ -90,7 +91,12 @@ class _LoginDemoState extends State<LoginDemo> {
               height: 20,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Menu()),
+                );
+              },
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(
                     horizontal: 50, vertical: 20), // define o padding
