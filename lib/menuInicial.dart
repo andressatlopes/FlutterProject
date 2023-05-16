@@ -1,6 +1,8 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
 
+import 'forum.dart';
+
 void main() {
   runApp(const Menu());
 }
@@ -11,7 +13,7 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 203, 181, 235),
+      backgroundColor: const Color.fromARGB(255, 234, 224, 245),
       body: Container(
         height: MediaQuery.of(context).size.height,
         alignment: Alignment.center,
@@ -93,7 +95,10 @@ class Menu extends StatelessWidget {
                       ),
                     ),
                     onTap: () {
-                      // Lógica para tratar o clique na opção 3
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Forum()),
+                      );
                     },
                   ),
                   const SizedBox(

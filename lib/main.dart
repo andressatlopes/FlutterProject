@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projeto/cadastro.dart';
+
+import 'cadastro.dart';
+import 'forum.dart';
 //import 'menuInicial.dart';
 
 void main() => runApp(const MyApp());
@@ -28,93 +30,101 @@ class _LoginDemoState extends State<LoginDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 210, 192, 238),
-        body: Padding(
-            padding: const EdgeInsets.all(50),
-            child: Center(
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    const Text(
-                      'LOGIN',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20.0),
-                      child: Center(
-                        child: SizedBox(
-                            width: 250,
-                            height: 130,
-                            child: Image.asset('images/imgLogin.png')),
-                      ),
-                    ),
-                    const SizedBox(height: 40),
-                    TextFormField(
-                      autofocus: true,
-                      keyboardType: TextInputType.text,
-                      style: const TextStyle(color: Colors.white, fontSize: 15),
-                      decoration: const InputDecoration(
-                          labelText: "Email",
-                          labelStyle: TextStyle(color: Colors.white)),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    TextFormField(
-                      autofocus: true,
-                      obscureText: true,
-                      keyboardType: TextInputType.text,
-                      style: const TextStyle(color: Colors.white, fontSize: 15),
-                      decoration: const InputDecoration(
-                          labelText: "Senha",
-                          labelStyle: TextStyle(color: Colors.white)),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Cadastro()),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor:
-                            const Color.fromARGB(255, 150, 86, 247),
-                        backgroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 50, vertical: 20),
-                        minimumSize:
-                            const Size(150, 50), // define a cor do texto
-                      ),
-                      child: const Text('ENTRAR'),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        // Navegue para a tela de cadastro aqui
-                      },
-                      child: const Text(
-                        'Ainda não tem uma conta? CADASTRAR-SE',
-                        style: TextStyle(
-                          //decoration: TextDecoration.underline,
-                          color: Colors.black,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ]),
-            )));
+      backgroundColor: const Color.fromARGB(255, 234, 224, 245),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            const SizedBox(
+              height: 80,
+            ),
+            const Text(
+              'LOGIN',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            // Padding(
+            //   padding: const EdgeInsets.only(top: 40.0),
+            //   child: Center(
+            //     child: SizedBox(
+            //         width: 150,
+            //         height: 100,
+            //         /*decoration: BoxDecoration(
+            //             color: Colors.red,
+            //             borderRadius: BorderRadius.circular(50.0)),*/
+            //         child: Image.asset('images/imgLogin.png')),
+            //   ),
+            // ),
+            const SizedBox(
+              height: 50,
+            ),
+            const Padding(
+              //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Email',
+                  hintText: 'Enter valid email id as abc@gmail.com',
+                  filled: true,
+                  fillColor: Colors.white,
+                ),
+              ),
+            ),
+            const Padding(
+              padding:
+                  EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
+              //padding: EdgeInsets.symmetric(horizontal: 15),
+              child: TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Password',
+                  hintText: 'Enter secure password',
+                  filled: true,
+                  fillColor: Colors.white,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            // FlatButton(
+            //   onPressed: (){
+            //     //TODO FORGOT PASSWORD SCREEN GOES HERE
+            //   },
+            //   child: Text(
+            //     'Forgot Password',
+            //     style: TextStyle(color: Colors.blue, fontSize: 15),
+            //   ),
+            // ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Cadastro()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                foregroundColor: const Color.fromARGB(255, 150, 86, 247),
+                backgroundColor: Colors.white,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                minimumSize: const Size(150, 50), // define a cor do texto
+              ),
+              child: const Text('ENTRAR'),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            const Text('Novo usuário? Criar uma conta')
+          ],
+        ),
+      ),
+    );
   }
 }
 
