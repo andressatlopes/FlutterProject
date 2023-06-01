@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'menuInicial.dart';
+import 'menu/menuInicial.dart';
 
 void main() => runApp(const Cadastro2());
 
@@ -86,7 +86,7 @@ class Cadastro2 extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
               minimumSize: const Size(150, 50), // define a cor do texto
             ),
-            child: const Text('Próximo'),
+            child: const Text('Cadastrar-se'),
           ),
         ],
       ),

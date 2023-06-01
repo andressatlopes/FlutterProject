@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'cadastro.dart';
-import 'forum.dart';
+import 'menu/forum.dart';
 //import 'menuInicial.dart';
 
 void main() => runApp(const MyApp());
