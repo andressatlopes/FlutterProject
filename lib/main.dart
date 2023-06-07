@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'cadastro.dart';
 import 'menu/forum.dart';
 //import 'menuInicial.dart';

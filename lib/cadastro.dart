@@ -14,7 +14,7 @@ class Cadastro extends StatelessWidget {
         image: DecorationImage(
           image: AssetImage("images/imgCadastro.png"),
           fit: BoxFit.cover,
-          opacity: 0.5,
+          opacity: 0.3,
         ),
       ),
       child: Column(

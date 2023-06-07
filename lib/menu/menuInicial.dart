@@ -55,7 +55,11 @@ class Menu extends StatelessWidget {
                       ),
                     ),
                     onTap: () {
-                      // Lógica para tratar o clique na opção 1
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MaterialApp()),
+                      );
                     },
                   ),
                   const SizedBox(
