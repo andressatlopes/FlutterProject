@@ -1,6 +1,10 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'forum.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+final Uri _url = Uri.parse(
+    'https://parte-html-cancer-de-mama.tallesgabriel1.repl.co/cancerdemama.html');
 
 void main() {
   runApp(const Menu());
@@ -54,12 +58,8 @@ class Menu extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const MaterialApp()),
-                      );
+                    onTap: () async {
+                      await launchUrl(_url);
                     },
                   ),
                   const SizedBox(
