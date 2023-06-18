@@ -12,9 +12,9 @@ class Cadastro extends StatelessWidget {
         body: Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("images/imgCadastro.png"),
+          image: AssetImage("images/cadastro.png"),
           fit: BoxFit.cover,
-          opacity: 0.3,
+          opacity: 0.5,
         ),
       ),
       child: Column(

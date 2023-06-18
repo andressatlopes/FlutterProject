@@ -59,10 +59,13 @@ flutter:
   assets:
     - images/simbolo.png
     - images/img1.png
-    - images/paciente.png
     - images/forum.png
-    - images/imgLogin.png
     - images/imgCadastro.png
+    - images/imgcancer.png
+    - images/imgdicas.png
+    - images/imgpaciente.png
+    - images/imglogin.png
+    - images/cadastro.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

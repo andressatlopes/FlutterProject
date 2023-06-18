@@ -5,6 +5,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 final Uri _url = Uri.parse(
     'https://parte-html-cancer-de-mama.tallesgabriel1.repl.co/cancerdemama.html');
+final Uri _url2 = Uri.parse(
+    'https://parte-html-cancer-de-mama.tallesgabriel1.repl.co/DicaseDuvidas.html');
 
 void main() {
   runApp(const Menu());
@@ -16,7 +18,7 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 234, 224, 245),
+      backgroundColor: const Color.fromARGB(255, 255, 210, 245),
       body: Container(
         height: MediaQuery.of(context).size.height,
         alignment: Alignment.center,
@@ -32,8 +34,9 @@ class Menu extends StatelessWidget {
                 'MENU INICIAL',
                 style: TextStyle(
                   fontSize: 28,
+                  fontFamily: 'OpenSans',
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 5, 5, 5),
+                  color: Color.fromARGB(255, 148, 51, 98),
                 ),
               ),
             ),
@@ -44,12 +47,12 @@ class Menu extends StatelessWidget {
               child: ListView(
                 children: [
                   ListTile(
-                    // leading: ClipOval(
-                    //   child: Image.asset(
-                    //     'images/simbolo2.png',
-                    //     fit: BoxFit.fill,
-                    //   ),
-                    // ),
+                    leading: ClipOval(
+                      child: Image.asset(
+                        'images/imgcancer.png',
+                        fit: BoxFit.fill,
+                      ),
+                    ),
                     title: const Text(
                       'CANCÊR DE MAMA',
                       style: TextStyle(
@@ -67,8 +70,8 @@ class Menu extends StatelessWidget {
                   ),
                   ListTile(
                     leading: ClipOval(
-                      child:
-                          Image.asset('images/paciente.png', fit: BoxFit.fill),
+                      child: Image.asset('images/imgpaciente.png',
+                          fit: BoxFit.fill),
                     ),
                     title: const Text(
                       'PACIENTE',
@@ -108,9 +111,10 @@ class Menu extends StatelessWidget {
                     height: 20,
                   ),
                   ListTile(
-                    // leading: ClipOval(
-                    //   child: Image.asset('images/dicas.png', fit: BoxFit.fill),
-                    // ),
+                    leading: ClipOval(
+                      child:
+                          Image.asset('images/imgdicas.png', fit: BoxFit.fill),
+                    ),
                     title: const Text(
                       'DICAS E DÚVIDAS',
                       style: TextStyle(
@@ -119,8 +123,8 @@ class Menu extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    onTap: () {
-                      // Lógica para tratar o clique na opção 3
+                    onTap: () async {
+                      await launchUrl(_url2);
                     },
                   ),
                 ],
