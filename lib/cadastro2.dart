@@ -24,7 +24,7 @@ class _Cadastro2State extends State<Cadastro2> {
           image: DecorationImage(
             image: AssetImage("images/cadastro.png"),
             fit: BoxFit.cover,
-            opacity: 0.3,
+            opacity: 0.2,
           ),
         ),
         child: Column(
@@ -182,11 +182,11 @@ class _Cadastro2State extends State<Cadastro2> {
                 );
               },
               style: ElevatedButton.styleFrom(
-                foregroundColor: const Color.fromARGB(255, 148, 51, 98),
-                backgroundColor: Colors.white,
+                foregroundColor: const Color.fromARGB(255, 248, 245, 246),
+                backgroundColor: const Color.fromARGB(255, 148, 51, 98),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                minimumSize: const Size(150, 50),
+                minimumSize: const Size(350, 50),
               ),
               child: const Text(
                 'Cadastrar-se',

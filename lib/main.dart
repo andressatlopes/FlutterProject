@@ -46,7 +46,7 @@ class _LoginDemoState extends State<LoginDemo> {
             height: 110,
           ),
           const Text(
-            'MAMAPP',
+            'MamApp',
             style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,
@@ -90,7 +90,6 @@ class _LoginDemoState extends State<LoginDemo> {
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Email',
-                hintText: 'Entre com um e-mail válido',
                 filled: true,
                 fillColor: Colors.white,
               ),
@@ -105,14 +104,13 @@ class _LoginDemoState extends State<LoginDemo> {
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Senha',
-                hintText: 'Entre com sua senha',
                 filled: true,
                 fillColor: Colors.white,
               ),
             ),
           ),
           const SizedBox(
-            height: 50,
+            height: 40,
           ),
           // FlatButton(
           //   onPressed: (){
@@ -131,10 +129,10 @@ class _LoginDemoState extends State<LoginDemo> {
               );
             },
             style: ElevatedButton.styleFrom(
-              foregroundColor: const Color.fromARGB(255, 148, 51, 98),
-              backgroundColor: Colors.white,
+              foregroundColor: const Color.fromARGB(255, 248, 245, 246),
+              backgroundColor: const Color.fromARGB(255, 148, 51, 98),
               padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-              minimumSize: const Size(150, 50), // define a cor do texto
+              minimumSize: const Size(350, 50), // define a cor do texto
             ),
             child: const Text(
               'ENTRAR',
