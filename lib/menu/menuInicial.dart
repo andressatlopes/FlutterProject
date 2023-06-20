@@ -12,139 +12,202 @@ void main() {
 }
 
 class Menu extends StatelessWidget {
-  const Menu({Key? key}) : super(key: key);
+  const Menu({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: const Color.fromARGB(255, 255, 210, 245),
-        body: Center(
-          child: Container(
-            width: MediaQuery.of(context).size.width *
-                0.8, // Defina a largura desejada para o Container
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(
+              height: 80,
+            ),
+            const Text(
+              'MENU INICIAL',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 148, 51, 98),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+              height: 60,
+            ),
+            ListView(
+              shrinkWrap: true,
               children: [
-                const SizedBox(
-                  height: 100,
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 100, top: 45, bottom: 8),
-                  child: Text(
-                    'MENU INICIAL',
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontFamily: 'OpenSans',
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 148, 51, 98),
+                Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        vertical: MediaQuery.of(context).size.width * 0.02),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFd2acd1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      onPressed: () async {
+                        await launchUrl(_url);
+                      },
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 4 / 7,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              'images/imgcancer.png',
+                              width: MediaQuery.of(context).size.width * 0.135,
+                              height: MediaQuery.of(context).size.width * 0.135,
+                            ),
+                            const Text(
+                              'CANCÊR DE MAMA',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color.fromARGB(247, 5, 5, 5),
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 50,
+                Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        vertical: MediaQuery.of(context).size.width * 0.02),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFd2acd1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      onPressed: () async {
+                        await launchUrl(_url);
+                      },
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 4 / 7,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              'images/imgpaciente.png',
+                              width: MediaQuery.of(context).size.width * 0.135,
+                              height: MediaQuery.of(context).size.width * 0.135,
+                            ),
+                            const Text(
+                              'PACIENTE',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color.fromARGB(247, 5, 5, 5),
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-                Expanded(
-                  child: ListView(
-                    children: [
-                      ListTile(
-                        leading: Image.asset(
-                          'images/imgcancer.png',
-                          fit: BoxFit.cover,
-                          width: 40, // Defina o tamanho desejado para a imagem
-                          height: 40, // Defina o tamanho desejado para a imagem
+                Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        vertical: MediaQuery.of(context).size.width * 0.02),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFd2acd1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
                         ),
-                        title: const Text(
-                          'CANCÊR DE MAMA',
-                          style: TextStyle(
-                            color: Color.fromARGB(247, 5, 5, 5),
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        onTap: () async {
-                          await launchUrl(_url);
-                        },
                       ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      ListTile(
-                        leading: Image.asset(
-                          'images/imgpaciente.png',
-                          fit: BoxFit.cover,
-                          width: 40, // Defina o tamanho desejado para a imagem
-                          height: 40, // Defina o tamanho desejado para a imagem
+                      onPressed: () async {
+                        await launchUrl(_url);
+                      },
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 4 / 7,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              'images/forum.png',
+                              width: MediaQuery.of(context).size.width * 0.135,
+                              height: MediaQuery.of(context).size.width * 0.135,
+                            ),
+                            const Text(
+                              'FÓRUM',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color.fromARGB(247, 5, 5, 5),
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
-                        title: const Text(
-                          'PACIENTE',
-                          style: TextStyle(
-                            color: Color.fromARGB(247, 10, 10, 10),
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        onTap: () {
-                          // Lógica para tratar o clique na opção 2
-                        },
                       ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      ListTile(
-                        leading: Image.asset(
-                          'images/forum.png',
-                          fit: BoxFit.cover,
-                          width: 40, // Defina o tamanho desejado para a imagem
-                          height: 40, // Defina o tamanho desejado para a imagem
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        vertical: MediaQuery.of(context).size.width * 0.02),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFd2acd1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
                         ),
-                        title: const Text(
-                          'FÓRUM',
-                          style: TextStyle(
-                            color: Color.fromARGB(247, 14, 13, 13),
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Forum()),
-                          );
-                        },
                       ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      ListTile(
-                        leading: Image.asset(
-                          'images/imgdicas.png',
-                          fit: BoxFit.cover,
-                          width: 40, // Defina o tamanho desejado para a imagem
-                          height: 40, // Defina o tamanho desejado para a imagem
+                      onPressed: () async {
+                        await launchUrl(_url);
+                      },
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 4 / 7,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              'images/imgdicas.png',
+                              width: MediaQuery.of(context).size.width * 0.135,
+                              height: MediaQuery.of(context).size.width * 0.135,
+                            ),
+                            const Text(
+                              'DICAS E DÚVIDAS',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color.fromARGB(247, 5, 5, 5),
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
-                        title: const Text(
-                          'DICAS E DÚVIDAS',
-                          style: TextStyle(
-                            color: Color.fromARGB(247, 22, 9, 9),
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        onTap: () async {
-                          await launchUrl(_url2);
-                        },
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ],
             ),
-          ),
-        ),
-      ),
-    );
+            /*Row(
+                  children: [
+                    Expanded(
+                      child: Image.asset(
+                        'images/imgmenu.png',
+                        fit: BoxFit.fill, // Adjust the fit based on your needs
+                      ),
+                    ),
+                  ],
+                )*/
+          ],
+        ));
   }
 }
