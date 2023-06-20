@@ -19,14 +19,19 @@ class Menu extends StatelessWidget {
         backgroundColor: const Color(0xFF8C759F),
         body: Center(
             child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10), // Set the border radius
+            color: const Color.fromARGB(
+                255, 255, 210, 245), // Set the background color
+          ),
           width: MediaQuery.of(context).size.width * 0.95,
           height: MediaQuery.of(context).size.height -
               MediaQuery.of(context).size.width * 0.05,
-          decoration: BoxDecoration(
+          /*decoration: BoxDecoration(
             color: const Color.fromARGB(
                 255, 255, 210, 245), // Set the background color
             borderRadius: BorderRadius.circular(10), // Set the border radius
-          ),
+          ),*/
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -38,7 +43,7 @@ class Menu extends StatelessWidget {
                   style: TextStyle(
                     fontSize: MediaQuery.of(context).size.width * 0.08,
                     fontWeight: FontWeight.bold,
-                    color: const Color.fromARGB(255, 5, 5, 5),
+                    color: const Color.fromARGB(255, 148, 51, 98),
                   ),
                 ),
               ),
@@ -65,7 +70,7 @@ class Menu extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Image.asset(
-                                'images/imgcancer.png',
+                                'images/imgmenu.png',
                                 width:
                                     MediaQuery.of(context).size.width * 0.135,
                                 height:
@@ -107,7 +112,7 @@ class Menu extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Image.asset(
-                                'images/paciente.png',
+                                'images/imgcancer.png',
                                 width:
                                     MediaQuery.of(context).size.width * 0.135,
                                 height:

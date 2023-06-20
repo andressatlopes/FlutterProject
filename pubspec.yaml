@@ -66,6 +66,7 @@ flutter:
     - images/imgcancer.png
     - images/imgduvidas.png
     - images/imgmenu.png
+    - images/bgmenu.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
