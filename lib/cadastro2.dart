@@ -4,24 +4,25 @@ import 'menu/menuInicial.dart';
 
 void main() => runApp(const Cadastro2());
 
-class Cadastro2 extends StatelessWidget {
+class Cadastro2 extends StatefulWidget {
   const Cadastro2({Key? key}) : super(key: key);
 
   @override
+  _Cadastro2State createState() => _Cadastro2State();
+}
+
+class _Cadastro2State extends State<Cadastro2> {
+  bool isAcompanhante = false;
+  List<String> tiposCancer = ['Her 2', 'Triplo Negativo', 'Hormonal'];
+  String? selectedTipoCancer;
+
+  @override
   Widget build(BuildContext context) {
-    bool isAcompanhante = false;
-
-    // void atualizarAcompanhante(bool value) {
-    //   context.read<Cadastro2State>().setState(() {
-    //     isAcompanhante = value;
-    //   });
-    // }
-
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/imgCadastro.png"),
+            image: AssetImage("images/cadastro.png"),
             fit: BoxFit.cover,
             opacity: 0.3,
           ),
@@ -34,14 +35,17 @@ class Cadastro2 extends StatelessWidget {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Colors.black,
+                color: Color.fromARGB(255, 148, 51, 98),
               ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 50),
             const Text(
               'Você é acompanhante?',
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             Center(
               child: Row(
@@ -52,7 +56,9 @@ class Cadastro2 extends StatelessWidget {
                     groupValue: isAcompanhante,
                     onChanged: (bool? value) {
                       if (value != null) {
-                        //context.read<Cadastro2>().atualizarAcompanhante(value);
+                        setState(() {
+                          isAcompanhante = value;
+                        });
                       }
                     },
                   ),
@@ -62,7 +68,9 @@ class Cadastro2 extends StatelessWidget {
                     groupValue: isAcompanhante,
                     onChanged: (bool? value) {
                       if (value != null) {
-                        //context.read<Cadastro2>().atualizarAcompanhante(value);
+                        setState(() {
+                          isAcompanhante = value;
+                        });
                       }
                     },
                   ),
@@ -73,7 +81,10 @@ class Cadastro2 extends StatelessWidget {
             const SizedBox(height: 20),
             const Text(
               'Você é paciente?',
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             Center(
               child: Row(
@@ -84,7 +95,9 @@ class Cadastro2 extends StatelessWidget {
                     groupValue: isAcompanhante,
                     onChanged: (bool? value) {
                       if (value != null) {
-                        //context.read<Cadastro2>().atualizarAcompanhante(value);
+                        setState(() {
+                          isAcompanhante = value;
+                        });
                       }
                     },
                   ),
@@ -94,7 +107,9 @@ class Cadastro2 extends StatelessWidget {
                     groupValue: isAcompanhante,
                     onChanged: (bool? value) {
                       if (value != null) {
-                        //context.read<Cadastro2>().atualizarAcompanhante(value);
+                        setState(() {
+                          isAcompanhante = value;
+                        });
                       }
                     },
                   ),
@@ -105,15 +120,22 @@ class Cadastro2 extends StatelessWidget {
             const SizedBox(height: 20),
             const Text(
               'Se você é paciente, com quantos anos',
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const Text(
               ' descobriu o câncer de mama?',
-              style: TextStyle(fontSize: 16),
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15),
-              child: TextField(
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: const TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   filled: true,
@@ -122,15 +144,29 @@ class Cadastro2 extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-            const Text(
-              'Qual o tipo de câncer?',
-              style: TextStyle(fontSize: 16),
-            ),
-            const Padding(
-              padding:
-                  EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
-              child: TextField(
-                decoration: InputDecoration(
+            const Text('Qual o tipo de câncer?',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                )),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: DropdownButtonFormField<String>(
+                value: selectedTipoCancer,
+                onChanged: (String? value) {
+                  setState(() {
+                    selectedTipoCancer = value;
+                  });
+                },
+                items:
+                    tiposCancer.map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   filled: true,
                   fillColor: Colors.white,
@@ -146,13 +182,18 @@ class Cadastro2 extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                foregroundColor: const Color.fromARGB(255, 150, 86, 247),
+                foregroundColor: const Color.fromARGB(255, 148, 51, 98),
                 backgroundColor: Colors.white,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                 minimumSize: const Size(150, 50),
               ),
-              child: const Text('Cadastrar-se'),
+              child: const Text(
+                'Cadastrar-se',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
           ],
         ),

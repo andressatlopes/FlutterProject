@@ -27,7 +27,7 @@ class Cadastro extends StatelessWidget {
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: Colors.black,
+              color: Color.fromARGB(255, 148, 51, 98),
             ),
             textAlign: TextAlign.center,
           ),
@@ -111,12 +111,17 @@ class Cadastro extends StatelessWidget {
               );
             },
             style: ElevatedButton.styleFrom(
-              foregroundColor: const Color.fromARGB(255, 150, 86, 247),
+              foregroundColor: const Color.fromARGB(255, 148, 51, 98),
               backgroundColor: Colors.white,
               padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
               minimumSize: const Size(150, 50), // define a cor do texto
             ),
-            child: const Text('Próximo'),
+            child: const Text(
+              'Próximo',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
         ],
       ),
