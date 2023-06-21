@@ -8,8 +8,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: 'AIzaSyDJJI5hxVzrjVWPyxqaLvTZF1tH4xWYuDg',
+      appId: '1:766213068289:web:6d94302cd2928d4e82d200',
+      messagingSenderId: '766213068289',
+      projectId: 'medicinacelso',
+      authDomain: 'medicinacelso.firebaseapp.com',
+      storageBucket: 'medicinacelso.appspot.com',
+      measurementId: 'G-TT4GXQPSV8',
+    ),
+  );
   runApp(const MyApp());
-  await Firebase.initializeApp();
 }
 
 class MyApp extends StatelessWidget {
