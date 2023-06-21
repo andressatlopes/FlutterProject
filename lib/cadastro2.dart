@@ -13,6 +13,7 @@ class Cadastro2 extends StatefulWidget {
 
 class _Cadastro2State extends State<Cadastro2> {
   bool isAcompanhante = false;
+  bool isPaciente = false;
   List<String> tiposCancer = ['Her 2', 'Triplo Negativo', 'Hormonal'];
   String? selectedTipoCancer;
 
@@ -27,7 +28,7 @@ class _Cadastro2State extends State<Cadastro2> {
             opacity: 0.2,
           ),
         ),
-        child: Column(
+        child: ListView(
           children: <Widget>[
             const SizedBox(height: 80),
             const Text(
@@ -40,11 +41,14 @@ class _Cadastro2State extends State<Cadastro2> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 50),
-            const Text(
-              'Você é acompanhante?',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+            const Align(
+              alignment: Alignment.center,
+              child: Text(
+                'Você é acompanhante?',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Center(
@@ -79,11 +83,14 @@ class _Cadastro2State extends State<Cadastro2> {
               ),
             ),
             const SizedBox(height: 20),
-            const Text(
-              'Você é paciente?',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+            const Align(
+              alignment: Alignment.center,
+              child: Text(
+                'Você é paciente?',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Center(
@@ -92,11 +99,11 @@ class _Cadastro2State extends State<Cadastro2> {
                 children: <Widget>[
                   Radio(
                     value: true,
-                    groupValue: isAcompanhante,
+                    groupValue: isPaciente,
                     onChanged: (bool? value) {
                       if (value != null) {
                         setState(() {
-                          isAcompanhante = value;
+                          isPaciente = value;
                         });
                       }
                     },
@@ -104,11 +111,11 @@ class _Cadastro2State extends State<Cadastro2> {
                   const Text('Sim'),
                   Radio(
                     value: false,
-                    groupValue: isAcompanhante,
+                    groupValue: isPaciente,
                     onChanged: (bool? value) {
                       if (value != null) {
                         setState(() {
-                          isAcompanhante = value;
+                          isPaciente = value;
                         });
                       }
                     },
@@ -118,18 +125,24 @@ class _Cadastro2State extends State<Cadastro2> {
               ),
             ),
             const SizedBox(height: 20),
-            const Text(
-              'Se você é paciente, com quantos anos',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+            const Align(
+              alignment: Alignment.center,
+              child: Text(
+                'Se você é paciente, com quantos anos',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-            const Text(
-              ' descobriu o câncer de mama?',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+            const Align(
+              alignment: Alignment.center,
+              child: Text(
+                ' descobriu o câncer de mama?',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             Container(
@@ -144,11 +157,14 @@ class _Cadastro2State extends State<Cadastro2> {
               ),
             ),
             const SizedBox(height: 30),
-            const Text('Qual o tipo de câncer?',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                )),
+            const Align(
+              alignment: Alignment.center,
+              child: Text('Qual o tipo de câncer?',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ),
             Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -174,24 +190,28 @@ class _Cadastro2State extends State<Cadastro2> {
               ),
             ),
             const SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MyApp()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                foregroundColor: const Color.fromARGB(255, 248, 245, 246),
-                backgroundColor: const Color.fromARGB(255, 148, 51, 98),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                minimumSize: const Size(350, 50),
-              ),
-              child: const Text(
-                'Cadastrar-se',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
+            FractionallySizedBox(
+              widthFactor:
+                  0.8, // Defina o fator de largura desejado para o botão
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Menu()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: const Color.fromARGB(255, 248, 245, 246),
+                  backgroundColor: const Color.fromARGB(255, 148, 51, 98),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 100, vertical: 20),
+                  // minimumSize: const Size(300, 50), // Remova essa linha
+                ),
+                child: const Text(
+                  'Cadastrar-se',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),

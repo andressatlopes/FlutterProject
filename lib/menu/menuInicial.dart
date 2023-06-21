@@ -6,6 +6,8 @@ final Uri _url = Uri.parse(
     'https://parte-html-cancer-de-mama.tallesgabriel1.repl.co/cancerdemama.html');
 final Uri _url2 = Uri.parse(
     'https://parte-html-cancer-de-mama.tallesgabriel1.repl.co/DicaseDuvidas.html');
+final Uri _url3 = Uri.parse(
+    'https://parte-html-cancer-de-mama.tallesgabriel1.repl.co/Paciente.html');
 
 void main() {
   runApp(const Menu());
@@ -22,7 +24,7 @@ class Menu extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(
-              height: 80,
+              height: 100,
             ),
             const Text(
               'MENU INICIAL',
@@ -42,7 +44,7 @@ class Menu extends StatelessWidget {
                 Center(
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                        vertical: MediaQuery.of(context).size.width * 0.02),
+                        vertical: MediaQuery.of(context).size.width * 0.03),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFFd2acd1),
@@ -54,7 +56,7 @@ class Menu extends StatelessWidget {
                         await launchUrl(_url);
                       },
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 4 / 7,
+                        width: MediaQuery.of(context).size.width * 4 / 5,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -81,7 +83,7 @@ class Menu extends StatelessWidget {
                 Center(
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                        vertical: MediaQuery.of(context).size.width * 0.02),
+                        vertical: MediaQuery.of(context).size.width * 0.03),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFFd2acd1),
@@ -90,10 +92,10 @@ class Menu extends StatelessWidget {
                         ),
                       ),
                       onPressed: () async {
-                        await launchUrl(_url);
+                        await launchUrl(_url3);
                       },
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 4 / 7,
+                        width: MediaQuery.of(context).size.width * 4 / 5,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -120,7 +122,7 @@ class Menu extends StatelessWidget {
                 Center(
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                        vertical: MediaQuery.of(context).size.width * 0.02),
+                        vertical: MediaQuery.of(context).size.width * 0.03),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFFd2acd1),
@@ -132,14 +134,14 @@ class Menu extends StatelessWidget {
                         await launchUrl(_url);
                       },
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 4 / 7,
+                        width: MediaQuery.of(context).size.width * 4 / 5,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Image.asset(
                               'images/forum.png',
-                              width: MediaQuery.of(context).size.width * 0.135,
-                              height: MediaQuery.of(context).size.width * 0.135,
+                              width: MediaQuery.of(context).size.width * 0.139,
+                              height: MediaQuery.of(context).size.width * 0.139,
                             ),
                             const Text(
                               'FÓRUM',
@@ -159,7 +161,7 @@ class Menu extends StatelessWidget {
                 Center(
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                        vertical: MediaQuery.of(context).size.width * 0.02),
+                        vertical: MediaQuery.of(context).size.width * 0.03),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFFd2acd1),
@@ -168,10 +170,10 @@ class Menu extends StatelessWidget {
                         ),
                       ),
                       onPressed: () async {
-                        await launchUrl(_url);
+                        await launchUrl(_url2);
                       },
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 4 / 7,
+                        width: MediaQuery.of(context).size.width * 4 / 5,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
