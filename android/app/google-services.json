@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "766213068289",
+    "project_id": "medicinacelso",
+    "storage_bucket": "medicinacelso.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766213068289:android:0cc1e2cef2e1810282d200",
+        "android_client_info": {
+          "package_name": "com.example.projeto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766213068289-4oc2jdiki56l2dqnhm9b1gfvmssb6vt7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKyiyK7meSyd6aBLErkXBa_TaTmb0c4T0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766213068289-4oc2jdiki56l2dqnhm9b1gfvmssb6vt7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "766213068289-3rrsncahek9enk5nbrb8n0ltlpsaoah6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.projeto"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

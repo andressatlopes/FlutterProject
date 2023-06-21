@@ -23,11 +23,13 @@ class _Cadastro2State extends State<Cadastro2> {
   String? selectedTipoCancer;
 
   String email = ''; // Variável para armazenar o e-mail fornecido pelo usuário
-  String password = ''; // Variável para armazenar a senha fornecida pelo usuário
+  String password =
+      ''; // Variável para armazenar a senha fornecida pelo usuário
 
   Future<void> signUpWithEmailAndPassword() async {
     try {
-      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      UserCredential userCredential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -72,7 +74,8 @@ class _Cadastro2State extends State<Cadastro2> {
               style: ElevatedButton.styleFrom(
                 foregroundColor: const Color.fromARGB(255, 248, 245, 246),
                 backgroundColor: const Color.fromARGB(255, 148, 51, 98),
-                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                 minimumSize: const Size(350, 50),
               ),
               child: const Text(

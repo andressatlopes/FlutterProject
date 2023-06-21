@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'cadastro.dart';
 import 'menu/forum.dart';
 import 'menu/menuInicial.dart';
+import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -33,7 +34,8 @@ class LoginDemo extends StatefulWidget {
 
 class _LoginDemoState extends State<LoginDemo> {
   String email = ''; // Variável para armazenar o e-mail fornecido pelo usuário
-  String password = ''; // Variável para armazenar a senha fornecida pelo usuário
+  String password =
+      ''; // Variável para armazenar a senha fornecida pelo usuário
 
   Future<void> signInWithEmailAndPassword() async {
     try {
@@ -45,6 +47,7 @@ class _LoginDemoState extends State<LoginDemo> {
       User? user = userCredential.user;
       if (user != null) {
         // Usuário autenticado com sucesso, faça algo aqui
+        // ignore: use_build_context_synchronously
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const Menu()),
@@ -103,7 +106,7 @@ class _LoginDemoState extends State<LoginDemo> {
                     email = value;
                   });
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Email',
                   filled: true,
@@ -112,7 +115,8 @@ class _LoginDemoState extends State<LoginDemo> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
+              padding: const EdgeInsets.only(
+                  left: 15.0, right: 15.0, top: 15, bottom: 0),
               child: TextField(
                 onChanged: (value) {
                   setState(() {
@@ -120,7 +124,7 @@ class _LoginDemoState extends State<LoginDemo> {
                   });
                 },
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Senha',
                   filled: true,
@@ -135,7 +139,8 @@ class _LoginDemoState extends State<LoginDemo> {
               style: ElevatedButton.styleFrom(
                 foregroundColor: const Color.fromARGB(255, 248, 245, 246),
                 backgroundColor: const Color.fromARGB(255, 148, 51, 98),
-                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                 minimumSize: const Size(350, 50),
               ),
               child: const Text(
