@@ -3,12 +3,17 @@ import 'package:flutter/material.dart';
 import 'cadastro.dart';
 import 'menu/forum.dart';
 import 'menu/menuInicial.dart';
-//import 'menuInicial.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,159 +25,159 @@ class MyApp extends StatelessWidget {
 }
 
 class LoginDemo extends StatefulWidget {
-  const LoginDemo({super.key});
+  const LoginDemo({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _LoginDemoState createState() => _LoginDemoState();
 }
 
 class _LoginDemoState extends State<LoginDemo> {
+  String email = ''; // Variável para armazenar o e-mail fornecido pelo usuário
+  String password = ''; // Variável para armazenar a senha fornecida pelo usuário
+
+  Future<void> signInWithEmailAndPassword() async {
+    try {
+      UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      User? user = userCredential.user;
+      if (user != null) {
+        // Usuário autenticado com sucesso, faça algo aqui
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Menu()),
+        );
+      }
+    } catch (e) {
+      // Ocorreu um erro ao autenticar o usuário, trate-o aqui
+      print('Erro ao autenticar usuário: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        //backgroundColor: const Color.fromARGB(255, 255, 210, 245),
-        body: Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("images/imgLogin2.png"),
-          fit: BoxFit.cover,
-          opacity: 0.2,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/imgLogin2.png"),
+            fit: BoxFit.cover,
+            opacity: 0.2,
+          ),
+        ),
+        child: Column(
+          children: <Widget>[
+            const SizedBox(
+              height: 110,
+            ),
+            const Text(
+              'MamApp',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 148, 51, 98),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const Text(
+              'Seja bem-vinda!',
+              style: TextStyle(
+                fontSize: 18,
+                color: Color.fromARGB(255, 148, 51, 98),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(
+              height: 60,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: TextField(
+                onChanged: (value) {
+                  setState(() {
+                    email = value;
+                  });
+                },
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Email',
+                  filled: true,
+                  fillColor: Colors.white,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
+              child: TextField(
+                onChanged: (value) {
+                  setState(() {
+                    password = value;
+                  });
+                },
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Senha',
+                  filled: true,
+                  fillColor: Colors.white,
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                signInWithEmailAndPassword();
+              },
+              style: ElevatedButton.styleFrom(
+                foregroundColor: const Color.fromARGB(255, 248, 245, 246),
+                backgroundColor: const Color.fromARGB(255, 148, 51, 98),
+                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                minimumSize: const Size(350, 50),
+              ),
+              child: const Text(
+                'ENTRAR',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            RichText(
+              text: TextSpan(
+                text: 'É nova por aqui? ',
+                style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                ),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: 'Criar uma conta',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Color.fromARGB(255, 148, 51, 98),
+                    ),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Cadastro(),
+                          ),
+                        );
+                      },
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
-      child: Column(
-        children: <Widget>[
-          const SizedBox(
-            height: 110,
-          ),
-          const Text(
-            'MamApp',
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 148, 51, 98),
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          const Text(
-            'Seja bem-vinda!',
-            style: TextStyle(
-              fontSize: 18,
-              color: Color.fromARGB(255, 148, 51, 98),
-            ),
-            textAlign: TextAlign.center,
-          ),
-          // Padding(
-          //   padding: const EdgeInsets.only(top: 40.0),
-          //   child: Center(
-          //     child: SizedBox(
-          //         width: 250,
-          //         height: 200,
-          //         /*decoration: BoxDecoration(
-          //           color: Colors.red,
-          //           borderRadius: BorderRadius.circular(50.0)),*/
-          //         child: Image.asset('images/imglogin.png')),
-          //   ),
-          // ),
-          // const SizedBox(
-          //   height: 20,
-          // ),
-          const SizedBox(
-            height: 60,
-          ),
-          const Padding(
-            //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
-            padding: EdgeInsets.symmetric(horizontal: 15),
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Email',
-                filled: true,
-                fillColor: Colors.white,
-              ),
-            ),
-          ),
-          const Padding(
-            padding:
-                EdgeInsets.only(left: 15.0, right: 15.0, top: 15, bottom: 0),
-            //padding: EdgeInsets.symmetric(horizontal: 15),
-            child: TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Senha',
-                filled: true,
-                fillColor: Colors.white,
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 40,
-          ),
-          // FlatButton(
-          //   onPressed: (){
-          //     //TODO FORGOT PASSWORD SCREEN GOES HERE
-          //   },
-          //   child: Text(
-          //     'Forgot Password',
-          //     style: TextStyle(color: Colors.blue, fontSize: 15),
-          //   ),
-          // ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Menu()),
-              );
-            },
-            style: ElevatedButton.styleFrom(
-              foregroundColor: const Color.fromARGB(255, 248, 245, 246),
-              backgroundColor: const Color.fromARGB(255, 148, 51, 98),
-              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-              minimumSize: const Size(350, 50), // define a cor do texto
-            ),
-            child: const Text(
-              'ENTRAR',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          RichText(
-            text: TextSpan(
-              text: 'É nova por aqui? ',
-              style: const TextStyle(
-                fontSize: 16, // Defina o tamanho da letra desejado
-                color: Colors.black,
-              ),
-              children: <TextSpan>[
-                TextSpan(
-                  text: 'Criar uma conta',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: Color.fromARGB(255, 148, 51, 98),
-                  ),
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      // Ação para abrir outra página aqui
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Cadastro()),
-                      );
-                    },
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    ));
+    );
   }
 }
