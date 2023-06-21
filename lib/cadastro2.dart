@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'menu/menuInicial.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-void main() => runApp(const Cadastro2());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const Cadastro2());
+}
 
 class Cadastro2 extends StatefulWidget {
   const Cadastro2({Key? key}) : super(key: key);
@@ -16,6 +22,25 @@ class _Cadastro2State extends State<Cadastro2> {
   bool isPaciente = false;
   List<String> tiposCancer = ['Her 2', 'Triplo Negativo', 'Hormonal'];
   String? selectedTipoCancer;
+
+  String email = ''; // Variável para armazenar o e-mail fornecido pelo usuário
+  String password = ''; // Variável para armazenar a senha fornecida pelo usuário
+
+  Future<void> signUpWithEmailAndPassword() async {
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      User? user = userCredential.user;
+      if (user != null) {
+        // Usuário criado com sucesso, faça algo aqui
+      }
+    } catch (e) {
+      // Ocorreu um erro ao criar o usuário, trate-o aqui
+      print('Erro ao criar usuário: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

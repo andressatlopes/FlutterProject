@@ -3,12 +3,17 @@ import 'package:flutter/material.dart';
 import 'cadastro.dart';
 import 'menu/forum.dart';
 import 'menu/menuInicial.dart';
-//import 'menuInicial.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +25,37 @@ class MyApp extends StatelessWidget {
 }
 
 class LoginDemo extends StatefulWidget {
-  const LoginDemo({super.key});
+  const LoginDemo({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _LoginDemoState createState() => _LoginDemoState();
 }
 
 class _LoginDemoState extends State<LoginDemo> {
+  String email = ''; // Variável para armazenar o e-mail fornecido pelo usuário
+  String password = ''; // Variável para armazenar a senha fornecida pelo usuário
+
+  Future<void> signInWithEmailAndPassword() async {
+    try {
+      UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      User? user = userCredential.user;
+      if (user != null) {
+        // Usuário autenticado com sucesso, faça algo aqui
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Menu()),
+        );
+      }
+    } catch (e) {
+      // Ocorreu um erro ao autenticar o usuário, trate-o aqui
+      print('Erro ao autenticar usuário: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

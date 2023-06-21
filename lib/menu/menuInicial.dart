@@ -1,6 +1,8 @@
+// ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'forum.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 
 final Uri _url = Uri.parse(
     'https://parte-html-cancer-de-mama.tallesgabriel1.repl.co/cancerdemama.html');
@@ -73,8 +75,18 @@ class Menu extends StatelessWidget {
                                 fontSize: 17,
                                 fontWeight: FontWeight.bold,
                               ),
-                            ),
-                          ],
+                              Text(
+                                'CANCÊR DE MAMA',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: const Color.fromARGB(247, 5, 5, 5),
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.07,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -112,8 +124,18 @@ class Menu extends StatelessWidget {
                                 fontSize: 17,
                                 fontWeight: FontWeight.bold,
                               ),
-                            ),
-                          ],
+                              Text(
+                                'PACIENTE',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: const Color.fromARGB(247, 5, 5, 5),
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.07,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -151,8 +173,18 @@ class Menu extends StatelessWidget {
                                 fontSize: 17,
                                 fontWeight: FontWeight.bold,
                               ),
-                            ),
-                          ],
+                              Text(
+                                'FÓRUM',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: const Color.fromARGB(247, 5, 5, 5),
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.07,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -190,26 +222,36 @@ class Menu extends StatelessWidget {
                                 fontSize: 17,
                                 fontWeight: FontWeight.bold,
                               ),
-                            ),
-                          ],
+                              Text(
+                                'DICAS E DÚVIDAS',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: const Color.fromARGB(247, 5, 5, 5),
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.07,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            /*Row(
-                  children: [
-                    Expanded(
-                      child: Image.asset(
-                        'images/imgmenu.png',
-                        fit: BoxFit.fill, // Adjust the fit based on your needs
-                      ),
+                ],
+              ),
+              /*Row(
+                children: [
+                  Expanded(
+                    child: Image.asset(
+                      'images/imgmenu.png',
+                      fit: BoxFit.fill, // Adjust the fit based on your needs
                     ),
-                  ],
-                )*/
-          ],
-        ));
+                  ),
+                ],
+              )*/
+            ],
+          ),
+        )));
   }
 }
