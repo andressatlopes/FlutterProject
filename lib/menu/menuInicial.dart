@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'forum.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 final Uri _url = Uri.parse(
@@ -9,35 +8,34 @@ final Uri _url2 = Uri.parse(
 final Uri _url3 = Uri.parse(
     'https://parte-html-cancer-de-mama.tallesgabriel1.repl.co/Paciente.html');
 
+final String groupLink =
+    'https://chat.whatsapp.com/FloELbSyAXv7p1vVWfiFws'; // Substitua pelo link do grupo desejado
+
 void main() {
   runApp(const Menu());
 }
 
 class Menu extends StatelessWidget {
-  const Menu({super.key});
+  const Menu({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 255, 210, 245),
-        body: Column(
+      backgroundColor: const Color.fromARGB(255, 255, 210, 245),
+      body: Center(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 100,
-            ),
+            const SizedBox(height: 110),
             const Text(
               'MENU INICIAL',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
                 color: Color.fromARGB(255, 148, 51, 98),
               ),
-              textAlign: TextAlign.center,
             ),
-            const SizedBox(
-              height: 60,
-            ),
+            const SizedBox(height: 40),
             ListView(
               shrinkWrap: true,
               children: [
@@ -53,10 +51,10 @@ class Menu extends StatelessWidget {
                         ),
                       ),
                       onPressed: () async {
-                        await launchUrl(_url);
+                        await launch(_url.toString());
                       },
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 4 / 5,
+                        width: MediaQuery.of(context).size.width * 4 / 6,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -70,7 +68,7 @@ class Menu extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Color.fromARGB(247, 5, 5, 5),
-                                fontSize: 17,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -92,10 +90,10 @@ class Menu extends StatelessWidget {
                         ),
                       ),
                       onPressed: () async {
-                        await launchUrl(_url3);
+                        await launch(_url3.toString());
                       },
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 4 / 5,
+                        width: MediaQuery.of(context).size.width * 4 / 6,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -109,7 +107,7 @@ class Menu extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Color.fromARGB(247, 5, 5, 5),
-                                fontSize: 17,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -131,24 +129,24 @@ class Menu extends StatelessWidget {
                         ),
                       ),
                       onPressed: () async {
-                        await launchUrl(_url);
+                        await launch(groupLink);
                       },
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 4 / 5,
+                        width: MediaQuery.of(context).size.width * 4 / 6,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Image.asset(
                               'images/forum.png',
-                              width: MediaQuery.of(context).size.width * 0.139,
-                              height: MediaQuery.of(context).size.width * 0.139,
+                              width: MediaQuery.of(context).size.width * 0.135,
+                              height: MediaQuery.of(context).size.width * 0.135,
                             ),
                             const Text(
                               'FÓRUM',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Color.fromARGB(247, 5, 5, 5),
-                                fontSize: 17,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -170,10 +168,10 @@ class Menu extends StatelessWidget {
                         ),
                       ),
                       onPressed: () async {
-                        await launchUrl(_url2);
+                        await launch(_url2.toString());
                       },
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 4 / 5,
+                        width: MediaQuery.of(context).size.width * 4 / 6,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -187,7 +185,7 @@ class Menu extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Color.fromARGB(247, 5, 5, 5),
-                                fontSize: 17,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -200,16 +198,18 @@ class Menu extends StatelessWidget {
               ],
             ),
             /*Row(
-                  children: [
-                    Expanded(
-                      child: Image.asset(
-                        'images/imgmenu.png',
-                        fit: BoxFit.fill, // Adjust the fit based on your needs
-                      ),
-                    ),
-                  ],
-                )*/
+              children: [
+                Expanded(
+                  child: Image.asset(
+                    'images/imgmenu.png',
+                    fit: BoxFit.fill, // Adjust the fit based on your needs
+                  ),
+                ),
+              ],
+            )*/
           ],
-        ));
+        ),
+      ),
+    );
   }
 }

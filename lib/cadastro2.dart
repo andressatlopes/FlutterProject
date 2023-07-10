@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'menu/menuInicial.dart';
-
-void main() => runApp(const Cadastro2());
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Cadastro2 extends StatefulWidget {
   const Cadastro2({Key? key}) : super(key: key);
@@ -12,10 +12,34 @@ class Cadastro2 extends StatefulWidget {
 }
 
 class _Cadastro2State extends State<Cadastro2> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   bool isAcompanhante = false;
   bool isPaciente = false;
   List<String> tiposCancer = ['Her 2', 'Triplo Negativo', 'Hormonal'];
   String? selectedTipoCancer;
+
+  Future<void> cadastrarUsuario() async {
+    try {
+      // Executar a lógica de criação de usuário com o FirebaseAuth
+      UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
+        email: 'email',
+        password: 'senha',
+      );
+
+      // Usuário criado com sucesso
+      User? user = userCredential.user;
+      if (user != null) {
+        // O usuário foi criado com sucesso, faça o que for necessário
+      } else {
+        // Não foi possível criar o usuário
+      }
+    } catch (e) {
+      // Tratar possíveis erros
+      print('Erro ao cadastrar usuário: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -159,11 +183,13 @@ class _Cadastro2State extends State<Cadastro2> {
             const SizedBox(height: 30),
             const Align(
               alignment: Alignment.center,
-              child: Text('Qual o tipo de câncer?',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  )),
+              child: Text(
+                'Qual o tipo de câncer?',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
             Container(
               width: double.infinity,
@@ -191,8 +217,7 @@ class _Cadastro2State extends State<Cadastro2> {
             ),
             const SizedBox(height: 30),
             FractionallySizedBox(
-              widthFactor:
-                  0.8, // Defina o fator de largura desejado para o botão
+              widthFactor: 0.8,
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -200,18 +225,17 @@ class _Cadastro2State extends State<Cadastro2> {
                     MaterialPageRoute(builder: (context) => const Menu()),
                   );
                 },
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: const Color.fromARGB(255, 248, 245, 246),
-                  backgroundColor: const Color.fromARGB(255, 148, 51, 98),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 100, vertical: 20),
-                  // minimumSize: const Size(300, 50), // Remova essa linha
-                ),
                 child: const Text(
                   'Cadastrar-se',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: const Color.fromARGB(255, 248, 245, 246),
+                  backgroundColor: const Color.fromARGB(255, 148, 51, 98),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 100, vertical: 20),
                 ),
               ),
             ),
