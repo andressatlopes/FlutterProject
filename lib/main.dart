@@ -7,7 +7,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
-  await Firebase.initializeApp();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: const FirebaseOptions(
@@ -43,9 +42,8 @@ class LoginDemo extends StatefulWidget {
 }
 
 class _LoginDemoState extends State<LoginDemo> {
-  String email = ''; // Variável para armazenar o e-mail fornecido pelo usuário
-  String password =
-      ''; // Variável para armazenar a senha fornecida pelo usuário
+  String email = '';
+  String password = '';
 
   Future<void> signInWithEmailAndPassword() async {
     try {
@@ -56,15 +54,29 @@ class _LoginDemoState extends State<LoginDemo> {
       );
       User? user = userCredential.user;
       if (user != null) {
-        // Usuário autenticado com sucesso, faça algo aqui
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const Menu()),
         );
       }
     } catch (e) {
-      // Ocorreu um erro ao autenticar o usuário, trate-o aqui
-      print('Erro ao autenticar usuário: $e');
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Erro'),
+            content: const Text('Erro ao autenticar usuário.'),
+            actions: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
     }
   }
 
@@ -140,6 +152,9 @@ class _LoginDemoState extends State<LoginDemo> {
                   fillColor: Colors.white,
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 40,
             ),
             ElevatedButton(
               onPressed: () {
